@@ -1,0 +1,6 @@
+*/*
+!Assets/Scripts
+.DS_Store
+Assembly-CSharp.csproj
+CrazyObjects.sln
+*.cs.meta
