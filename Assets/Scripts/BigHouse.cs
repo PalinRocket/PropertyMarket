@@ -3,18 +3,17 @@ using TMPro;
 
 public class BigHouse : House
 {
-    [SerializeField] TMP_InputField houseNameInput;
+    
+    private Color blueColor = new Color(0.07355822f,0.4353032f,0.5377358f,1);
     public BigHouse() : base(3,4,2)
     {
     }
-
-    protected override void SetName()
+    
+    public override void SetHouseColor()
     {
-        this.houseName = houseNameInput.text;
-    }
-
-    public void GetBathrooms()
-    {
-        Debug.Log(this.bathrooms);
+        //Set to blue color
+        houseWallRenderer.material.SetColor("_Color", blueColor);
     }
 }
+
+
