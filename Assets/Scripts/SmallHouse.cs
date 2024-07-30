@@ -1,28 +1,30 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-//Subclass BigHouse inherits from superclass House
-public class BigHouse : House
+//Subclass SmallHouse inherits from superclass House
+public class SmallHouse : House
 {
-    private Color blueColor = new Color(0.07355822f,0.4353032f,0.5377358f,1);
+    private Color purpleColor = new Color(0.311256f, 0.06f, 0.3f, 1);
     private bool mouseHover = false;
-    
-    //When a bigHouse-object is initialized it uses the constructor of superclass House
-    public BigHouse() : base(3,4,2)
+
+    public SmallHouse() : base(1,2,1)
     {
     }
-    
+   
     private void Start()
     {
-        houseInfo = GameObject.FindGameObjectWithTag("BigHouseTextBackground");
+        houseInfo = GameObject.FindGameObjectWithTag("SmallHouseTextBackground");
         houseInfoText = houseInfo.GetComponent<TMP_Text>();
         houseInfo.SetActive(false);
     }
     
+
     public override void SetHouseColor()
     {
-        //Set to blue color
-        houseWallRenderer.material.SetColor("_Color", blueColor);
+        //Set purple color
+        houseWallRenderer.material.SetColor("_Color", purpleColor);
     }
 
     void OnMouseOver()
@@ -41,5 +43,3 @@ public class BigHouse : House
         houseInfo.SetActive(false);
     }
 }
-
-

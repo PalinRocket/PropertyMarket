@@ -2,11 +2,12 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
+//Inheritance - Superclass
 public abstract class House : MonoBehaviour
 {
-    protected int bathrooms;
-    protected int bedrooms;
-    protected int livingrooms;
+    private int bathrooms;
+    private int bedrooms;
+    private int livingrooms;
 
     protected GameObject houseWall;
     protected Renderer houseWallRenderer;
@@ -24,22 +25,21 @@ public abstract class House : MonoBehaviour
     {
         houseWall = transform.GetChild(7).gameObject;
         houseWallRenderer = houseWall.GetComponent<Renderer>();
-        houseInfo = GameObject.FindGameObjectWithTag("BigHouseTextBackground");
-        houseInfoText = houseInfo.GetComponent<TMP_Text>();
-        houseInfo.SetActive(false);
     }
     
+    //Polymorphism - every inherited class must implement SetHouseColor method
     public abstract void SetHouseColor();
 
+    //Abstraciton 
     public void ResetColor()
     {
         //Set to white color
         houseWallRenderer.material.SetColor("_Color", new Color(1,1,1,1));
     }
 
-    //Changes Textfield
-    protected void GetHouseProperties()
+    //Encapsulation - can't access bathroom, livingroom and bedroom variables directly
+    protected void GetHouseProperties(TMP_Text infoText)
     {
-        houseInfoText.text = $"<b>House Properties:</b>\n\nBathrooms: {bathrooms}\nBedrooms: {bedrooms}\nLivingrooms: {livingrooms}";
+        infoText.text = $"<b>House Features:</b>\n\nBathrooms: {bathrooms}\nBedrooms: {bedrooms}\nLivingrooms: {livingrooms}";
     }
 }
