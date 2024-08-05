@@ -16,7 +16,7 @@ public class BigHouse : House
     {
         houseInfo = GameObject.FindGameObjectWithTag("BigHouseTextBackground");
         houseInfoText = houseInfo.GetComponent<TMP_Text>();
-        houseInfo.SetActive(false);
+        houseInfo.transform.parent.gameObject.SetActive(false);
     }
     
     public override void SetHouseColor()
@@ -30,7 +30,7 @@ public class BigHouse : House
         if(!mouseHover)
         {
             GetHouseProperties(houseInfoText);
-            houseInfo.SetActive(true);
+            houseInfo.transform.parent.gameObject.SetActive(true);
         }
         mouseHover = true;
     }
@@ -38,7 +38,7 @@ public class BigHouse : House
     void OnMouseExit()
     {
         mouseHover = false;
-        houseInfo.SetActive(false);
+        houseInfo.transform.parent.gameObject.SetActive(false);
     }
 }
 

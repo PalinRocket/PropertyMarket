@@ -17,7 +17,7 @@ public class SmallHouse : House
     {
         houseInfo = GameObject.FindGameObjectWithTag("SmallHouseTextBackground");
         houseInfoText = houseInfo.GetComponent<TMP_Text>();
-        houseInfo.SetActive(false);
+        houseInfo.transform.parent.gameObject.SetActive(false);
     }
     
 
@@ -32,7 +32,7 @@ public class SmallHouse : House
         if(!mouseHover)
         {
             GetHouseProperties(houseInfoText);
-            houseInfo.SetActive(true);
+            houseInfo.transform.parent.gameObject.SetActive(true);
         }
         mouseHover = true;
     }
@@ -40,6 +40,6 @@ public class SmallHouse : House
     void OnMouseExit()
     {
         mouseHover = false;
-        houseInfo.SetActive(false);
+        houseInfo.transform.parent.gameObject.SetActive(false);
     }
 }
